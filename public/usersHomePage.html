@@ -1,0 +1,1750 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Spa Relax!</title>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css" integrity="sha384-v2Tw72dyUXeU3y4aM2Y0tBJQkGfplr39mxZqlTBDUZAb9BGoC40+rdFCG0m10lXk"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/fontawesome.css" integrity="sha384-q3jl8XQu1OpdLgGFvNRnPdj5VIlCvgsDQTQB6owSOHWlAurxul7f+JpUOVdAiJ5P"
+        crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <script src="js/home.js"></script>
+    <script src="js/forgotPass.js"></script>
+
+    <!--body content ===============================================================================================-->
+</head>
+
+
+<div class="row navRow2">
+    <div class="col-md-6 opacityNone">
+    </div>
+    <div class="offset-md-1 col-md-5">
+        <div class="row">
+            <div id="headerbar" class=" col-md-9  homePageBtnPosition">
+
+                <a class="btn btn-secondary btn-lg btn-block" href="/create">Schedule new appointment</a>
+                <br>
+                <button id="logoutSubmit" class="btn btn-secondary btn-lg btn-block">Sign out</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row navRow3"></div>
+
+
+<div class="container rowBackground ">
+    <ul class="nav nav-tabs row marginTop" id="clientHomeView" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="userPostedAppointment" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">Appointments</a>
+        </li>
+        
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="userPostedAppointment" role="tabpanel" aria-labelledby="home-tab"></div>
+        <div class="tab-pane fade" id="userPendingAppointment" role="tabpanel" aria-labelledby="profile-tab"></div>
+        <div class="tab-pane fade" id="userCompletedAppointment" role="tabpanel" aria-labelledby="contact-tab"></div>
+        <div class="tab-pane fade" id="userPurchasedAppointment" role="tabpanel" aria-labelledby="profile-tab"></div>
+        <div class="tab-pane fade" id="purchasedHistory" role="tabpanel" aria-labelledby="contact-tab"></div>
+        <div class="tab-pane fade" id="viewAllAppointments" role="tabpanel" aria-labelledby="contact-tab"></div>
+    </div>
+
+        <div id="appointHomeView" class="row marginTop rowHeight">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="clientAppointments" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">My Appointments</a>
+                </li>
+            </ul>
+
+            <!-- <button id="clientAppointments" class="btn btn-primary btnHeight2" type="submit">Your Appointments</button> -->
+            <div class="form-group btn ddHeight ">
+                <select class="form-control" id="treatmentSelect">
+                    <option>Hot stone massage</option>
+                    <option>Swidish massage</option>
+                    <option>Womens facial</option>
+                    <option>Mans facial</option>
+                    <option>Deep tissue massage</option>
+                    <option>Treatment</option>
+                </select>
+            </div>
+
+
+            <button id='treatmentSubmit' type="submit" class="btn btn-primary btnHeight">Filter</button>
+        </div>
+
+        <div class="row">
+            <table id="clientPostedRowView" class="table rowBackground" style="background-color: #FFCC99">
+                <thead>
+                    <tr class="text-left">
+                        <th scope="col">Phone number</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Treatment type</th>
+                        <th scope="col"class="text-center">Modify/Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="userAppointments">
+                </tbody>
+            </table>
+
+
+            <!-- <table id="clientPendingRowView" class="table rowBackground">
+                <thead>
+                    <tr class="text-left">
+                        <th scope=""></th>
+                        <th scope="col">Appointment</th>
+                        <th style="width: 29%">PhoneNumber</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Treatment</th>
+                        <th scope="col">Appoint</th>
+                        <th scope="col">Request/Cancel</th>
+                    </tr>
+                </thead>
+                <tbody id="userPendingAppointments">
+                </tbody>
+            </table> -->
+
+
+            <table id="clientCompletedRowView" class="table rowBackground">
+                <thead>
+                    <tr class="text-left">
+                        <th scope=""></th>
+                        <th scope="col">Appointment</th>
+                        <th style="width: 29%">PhoneNumber</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Treatment</th>
+                        <th scope="col">Appoint</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody id="userCompletedAppointments">
+                </tbody>
+            </table>
+
+
+           <table id="clientPurchasedRowView" class="table rowBackground">
+                <thead>
+                    <tr class="text-left">
+                        <th scope=""></th>
+                        <th scope="col">Appointment</th>
+                        <th style="width: 29%">PhoneNumber</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Treatment</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">Cancel/Pay</th>
+                    </tr>
+                </thead>
+                <tbody id="userPurchasedAppointments">
+                </tbody>
+            </table>
+
+            <table id="clientPurchasedHistoryRowView" class="table rowBackground">
+                <thead>
+                    <tr class="text-left">
+                        <th scope=""></th>
+                        <th scope="col">Appointment</th>
+                        <th style="width: 29%">PhoneNumber</th>
+                        <th scope="col">Duration</th>
+                        <th scope="col">Day</th>
+                        <th scope="col">Treatment</th>
+                        <th scope="col">Client</th>
+                        <th scope="col">Comment</th>
+                    </tr>
+                </thead>
+                <tbody id="userPurchasedHistory">
+                </tbody>
+            </table>
+
+            <table id="clientSchedulesRowView" class="table rowBackground">
+                <thead>
+                    <tr class="text-left">
+                        <th scope="col">Appointment ID:</th>
+                        <th style="width: 40%">Schedule</th>
+                        <th scope="col">From</th>
+                        <th scope="col">Sent/Received</th>                        
+                        <th scope="col">Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="userSchedules">
+                </tbody>
+            </table>
+
+
+                <!-- <table id="allAppointmentsRowView" class="table rowBackground">
+                    <thead>
+                        <tr id="allAppointmentsTableHeadings" class="text-left">
+                        <th scope=""></th>
+                            <th scope="col">Appointment</th>
+                            <th style="width: 29%">PhoneNumber</th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Day</th>
+                            <th scope="col">Treatment</th>
+                            <th scope="col">Client</th>
+                            <th scope="col">Book</th>
+                        </tr>
+                    </thead>
+                    <tbody id="allAppointmentsTable">
+                    </tbody>
+                </table> -->
+        </div>
+    </div>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+
+
+    <!-- Optional JavaScript-->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</body>
+
+<script>
+
+
+//Getting all appointments associated with Client =====================================================================================================================================================
+    $("#appointHomeView").hide()
+    $("#allAppointmetsRowView").hide()
+    $("#clientPendingRowView").hide()
+    $("#clientCompletedRowView").hide()
+    $("#clientPurchasedRowView").hide()
+    $("#clientPurchasedHistoryRowView").hide()
+    $("#clientSchedulesRowView").hide()
+
+
+    var appointmentsArray = [];
+    var in_progressArray = [];
+    var completedArray = [];
+    var purchasedArray = [];
+    var purchasedHistoryArray = [];
+    var dossierAppointmentsArray = [];
+    var dossierIn_progressArray = [];
+    var dossierPurchasedArray = [];
+    var schedulesArray = [];
+
+            $.ajax("/api/clients1/" + sessionStorage.getItem("id"), {
+                type: "GET",
+                id: sessionStorage.getItem("id"),
+            }).then(function (dbClient) {
+                console.log(dbClient);
+                clientName = dbClient.username;
+                // if (dbClient.clientPhoto !== '') {
+                //     clientPhoto = dbClient.clientPhoto;
+                // } else {
+                //     clientPhoto = "/images/userTempPic.jpg";
+                // }
+                // $("#headerbar").append(`<img class="clientLogoHeader" src=${clientPhoto} alt="">`)
+            })
+
+
+
+
+
+
+
+
+
+//Getting all Posted appointments associated with Client =====================================================================================================================================================
+
+    $.ajax("/api/appointments/" + sessionStorage.getItem("id"), {
+        type: "GET",
+        id: sessionStorage.getItem("id")
+    }).then(function (dbClient) {
+        console.log("These are all the user posted Appointments",dbClient);
+        for (let i = 0; i < dbClient.length; i++) {
+            if (dbClient[i].clientAccept == false && dbClient[i].requesterAccept == false && dbClient[i].clientMarkComplete == false && dbClient[i].requesterMarkComplete == false) {
+                appointmentsArray.push(dbClient[i]);
+            } else if ((dbClient[i].clientAccept == true && dbClient[i].requesterAccept == true && dbClient[i].clientMarkComplete == false && dbClient[i].requesterMarkComplete == false) ||(dbClient[i].clientAccept == true && dbClient[i].requesterAccept == true && dbClient[i].clientMarkComplete == true && dbClient[i].requesterMarkComplete == false) ) {
+                in_progressArray.push(dbClient[i]);
+            } else if (dbClient[i].clientAccept == true && dbClient[i].requesterAccept == true && dbClient[i].clientMarkComplete == true && dbClient[i].requesterMarkComplete == true) {
+                completedArray.push(dbClient[i]);
+            }
+        }
+        for (let i = 0; i < appointmentsArray.length; i++) {
+            let appointmentid = appointmentsArray[i].id;
+            let phoneNumber = appointmentsArray[i].phoneNumber;
+            let duration = appointmentsArray[i].duration;
+            let day = appointmentsArray[i].day;
+            let tre = appointmentsArray[i].treatment;
+         
+            var newrow = $("<tr>");
+            newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+            newrow.append($("<td class='text-left'>" + duration + "</td>"));
+            newrow.append($("<td class='text-left'>" + day + "</td>"));
+            newrow.append($("<td class='text-left'>" + tre + "</td>"));
+            newrow.append($("<td><span onclick=editAppointment(" + appointmentid + ") i class='fas fa-edit glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span><span onclick=deleteAppointment(" + appointmentid + ") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+            $("#userAppointments").append(newrow);
+        }
+    })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//Getting all appoint Appointments scheduled associated with Client =====================================================================================================================================================
+
+    $.ajax("/api/appoint/" + sessionStorage.getItem("id"), {
+        type: "GET",
+        appointId: sessionStorage.getItem("id")
+    }).then(function (dbClient) {
+        for (let i = 0; i < dbClient.length; i++) {
+
+            if (dbClient[i].clientMarkComplete == false && dbClient[i].requesterMarkComplete == false || dbClient[i].clientMarkComplete == true  && dbClient[i].requesterMarkComplete == false) {
+                purchasedArray.push(dbClient[i]);
+            } else if (dbClient[i].clientMarkComplete == true && dbClient[i].requesterMarkComplete == true && dbClient[i].clientMarkComplete == true) {
+                purchasedHistoryArray.push(dbClient[i]);
+            }
+
+            if (dbClient[i].clientMarkComplete == true  && dbClient[i].requesterMarkComplete == false  && dbClient[i].appointmentPaid == null) {
+                    $("#userPurchasedAppointment").addClass("blink")
+
+            }else if(dbClient[i].clientMarkComplete == true  && dbClient[i].requesterMarkComplete == true  && dbClient[i].appointmentPaid == true){
+                     $("#userPurchasedAppointment").removeClass("blink")
+            }
+        }
+        console.log("This is the Appoint Purchased array", purchasedArray);
+        console.log("This is the Appoint Purchased History array", purchasedHistoryArray);
+        console.log("This is the Inprogess  array", in_progressArray);
+        console.log("This is the Completed array", completedArray);
+        dossier1()
+    })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+// Getting all schedules associated with Client =====================================================================================================================================================
+
+    $.ajax("/api/schedules/" + sessionStorage.getItem("id"), {
+        type: "GET",
+        clientId: sessionStorage.getItem("id")
+    }).then(function (dbClient) {
+
+        for (let i = 0; i < dbClient.length; i++) {
+            schedulesArray.push(dbClient[i])
+        }
+        // console.log("This is the Schedules array",schedulesArray);
+        
+    })
+
+    $.ajax("/api/schedules1/" + sessionStorage.getItem("id"), {
+            type: "GET",
+            appointId: sessionStorage.getItem("id")
+        }).then(function (dbClient) {
+
+            for (let i = 0; i < dbClient.length; i++) {
+                schedulesArray.push(dbClient[i])
+            }
+            console.log("This is the Schedules array", schedulesArray);
+
+    })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+
+//On click getting all appointments associated with Client =====================================================================================================================================================
+
+    $("#userPostedAppointment").on("click", function (event) {
+    //    $("#clientHomeView").hide()
+           $("#clientPostedRowView").show()
+           $("#clientPendingRowView").hide()
+           $("#clientCompletedRowView").hide()
+           $("#clientPurchasedRowView").hide()
+           $("#clientPurchasedHistoryRowView").hide()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").hide()
+           $("#allAppointmentsRowView").hide()
+        $("#userAppointments").empty()
+        event.preventDefault();
+        for (let i = 0; i < appointmentsArray.length; i++) {
+            let appointmentid = appointmentsArray[i].id;
+            let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + appointmentsArray[i].title + "</button>";
+            let phoneNumber = appointmentsArray[i].phoneNumber;
+            let duration = appointmentsArray[i].duration;
+            let day = appointmentsArray[i].day;
+            let tre = appointmentsArray[i].treatment;
+            let pic;
+            if (appointmentsArray[i].appointmentPhoto !== "") {
+                pic = appointmentsArray[i].appointmentPhoto;
+            } else {
+                pic = "/images/work.jpg";
+            }
+            var newrow = $("<tr>");
+            newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+            newrow.append($("<td class='text-left'>" + title + "</td>"));
+            newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+            newrow.append($("<td class='text-left'>" + duration + "</td>"));
+            newrow.append($("<td class='text-left'>" + day + "</td>"));
+            newrow.append($("<td class='text-left'>" + tre + "</td>"));
+            newrow.append($("<td><span onclick=editAppointment(" + appointmentid + ") i class='fas fa-edit glypiconSpace' data-key='" + appointmentid + "'></i></span><span onclick=deleteAppointment(" + appointmentid + ") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+            $("#userAppointments").append(newrow);
+        }
+    })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//On click getting all pending appointments associated with Client =====================================================================================================================================================
+
+    $("#userPendingAppointment").on("click", function (event) {
+  //    $("#clientHomeView").hide()
+           $("#clientPostedRowView").hide()
+           $("#clientPendingRowView").show()
+           $("#clientCompletedRowView").hide()
+           $("#clientPurchasedRowView").hide()
+           $("#clientPurchasedHistoryRowView").hide()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").hide()
+           $("#allAppointmentsRowView").hide()
+           $("#userPendingAppointments").empty()
+        event.preventDefault();
+        for (let i = 0; i < in_progressArray.length; i++) {
+            let appointmentid = in_progressArray[i].id;
+            let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + in_progressArray[i].title + "</button>";
+            let phoneNumber = in_progressArray[i].phoneNumber;
+            let duration = in_progressArray[i].duration;
+            let day = in_progressArray[i].day;
+            let tre = in_progressArray[i].treatment;
+            let appointName = in_progressArray[i].appointName;
+            let appointid = in_progressArray[i].appointId;
+            let appointNameURL = "<button onclick=userProfile(" + appointid + ") class=link>" + appointName + "</button>";
+            let pic;
+            if (in_progressArray[i].appointmentPhoto !== "") {
+                pic = in_progressArray[i].appointmentPhoto;
+            } else {
+                pic = "/images/work.jpg";
+            }
+            var newrow = $("<tr>");
+            newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+            newrow.append($("<td class='text-left'>" + title + "</td>"));
+            newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+            newrow.append($("<td class='text-left'>" + duration + "</td>"));
+            newrow.append($("<td class='text-left'>" + day + "</td>"));
+            newrow.append($("<td class='text-left'>" + tre + "</td>"));
+            newrow.append($("<td class='text-left'>" + appointNameURL + "</td>"));
+
+            if (in_progressArray[i].clientAccept == true && in_progressArray[i].requesterAccept == true && in_progressArray[i].clientMarkComplete == false && in_progressArray[i].requesterMarkComplete == false) {
+                newrow.append($("<td><span onclick=requestCash(" + appointmentid + ") i class='fas fa-dollar-sign glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span><span onclick=cancelAppointment(" + appointmentid + ") i class='fas fa-ban glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+
+            } else if (in_progressArray[i].clientAccept == true && in_progressArray[i].requesterAccept == true && in_progressArray[i].clientMarkComplete == true && in_progressArray[i].requesterMarkComplete == false) {
+                newrow.append($("<td>Payment Requested</td>"))
+            }
+            $("#userPendingAppointments").append(newrow);
+
+        }
+    })
+
+//END=============================================================================================================================================================================================================================
+
+//On click getting all completed appointments associated with Clients =====================================================================================================================================================
+
+    $("#userCompletedAppointment").on("click", function (event) {
+    //    $("#clientHomeView").hide()
+           $("#clientPostedRowView").hide()
+           $("#clientPendingRowView").hide()
+           $("#clientCompletedRowView").show()
+           $("#clientPurchasedRowView").hide()
+           $("#clientPurchasedHistoryRowView").hide()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").hide()
+           $("#allAppointmentsRowView").hide()
+        $("#userCompletedAppointments").empty()
+        event.preventDefault();
+        for (let i = 0; i < completedArray.length; i++) {
+            let appointmentid = completedArray[i].id;
+            let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + completedArray[i].title + "</button>" ;
+            let phoneNumber = completedArray[i].phoneNumber;
+            let duration = completedArray[i].duration;
+            let day = completedArray[i].day;
+            let tre = completedArray[i].treatment;
+            let appointName = completedArray[i].appointName;
+            let appointid = completedArray[i].appointId;
+            let appointNameURL = "<button onclick=userProfile(" + appointid + ") class=link>" + appointName + "</button>";
+            let pic;
+            if (completedArray[i].appointmentPhoto !== "") {
+                pic = completedArray[i].appointmentPhoto;
+            } else {
+                pic = "/images/work.jpg";
+            }
+            var newrow = $("<tr>");
+            newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+            newrow.append($("<td class='text-left'>" + title + "</td>"));
+            newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+            newrow.append($("<td class='text-left'>" + duration + "</td>"));
+            newrow.append($("<td class='text-left'>" + day + "</td>"));
+            newrow.append($("<td class='text-left'>" + tre + "</td>"));
+            newrow.append($("<td class='text-left'>" + appointNameURL + "</td>"));
+            newrow.append($("<td><span i class='fas fa-money-bill-alt glypiconSpace2 ficon'></i></span></td>"))
+            $("#userCompletedAppointments").append(newrow);
+        }
+    })
+
+
+//END=============================================================================================================================================================================================================================
+
+//On click getting all Scheduled appointments associated with Client =====================================================================================================================================================
+
+    $("#userPurchasedAppointment").on("click", function (event) {
+    //    $("#clientHomeView").hide()
+           $("#clientPostedRowView").hide()
+           $("#clientPendingRowView").hide()
+           $("#clientCompletedRowView").hide()
+           $("#clientPurchasedRowView").show()
+           $("#clientPurchasedHistoryRowView").hide()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").hide()
+           $("#allAppointmentsRowView").hide()
+        $("#userPurchasedAppointments").empty()
+        event.preventDefault();
+        for (let i = 0; i < purchasedArray.length; i++) {
+            let appointmentid = purchasedArray[i].id;
+            let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + purchasedArray[i].title + "</button>";
+            let phoneNumber = purchasedArray[i].phoneNumber;
+            let duration = purchasedArray[i].duration;
+            let day = purchasedArray[i].day;
+            let tre = purchasedArray[i].treatment;
+            let clientid = purchasedArray[i].ClientId;
+            let clientName = purchasedArray[i].ClientName;
+            let clientNameURL = "<button onclick=userProfile(" + clientid + ") class=link>" + clientName + "</button>";
+            let pic;
+            if (purchasedArray[i].appointmentPhoto !== "") {
+                pic = purchasedArray[i].appointmentPhoto;
+            } else {
+                pic = "/images/work.jpg";
+            }
+            var newrow = $("<tr>");
+            newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+            newrow.append($("<td class='text-left'>" + title + "</td>"));
+            newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+            newrow.append($("<td class='text-left'>" + duration + "</td>"));
+            newrow.append($("<td class='text-left'>" + day + "</td>"));
+            newrow.append($("<td class='text-left'>" + tre + "</td>"));
+            newrow.append($("<td class='text-left'>" + clientNameURL + "</td>"));
+
+            if (purchasedArray[i].clientAccept == true && purchasedArray[i].requesterAccept == true && purchasedArray[i].clientMarkComplete == false && purchasedArray[i].requesterMarkComplete == false) {
+                newrow.append($("<td><span onclick=cancelAppointment(" + appointmentid + ") i class='fas fa-ban glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+                $("#userPurchasedAppointments").append(newrow);
+            } else if (purchasedArray[i].clientAccept == true && purchasedArray[i].requesterAccept == true && purchasedArray[i].clientMarkComplete == true && purchasedArray[i].requesterMarkComplete == false) {
+                newrow.append($("<td><span onclick=markComplete(" + appointmentid + ") i class='fas fa-check-circle glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+                $("#userPurchasedAppointments").append(newrow);
+            }
+            else if (purchasedArray[i].clientAccept == true && purchasedArray[i].requesterAccept == true && purchasedArray[i].clientMarkComplete == true && purchasedArray[i].requesterMarkComplete == true) {
+               purchasedHistoryArray.push(purchasedArray[i])
+                i++
+            }
+        }
+    })
+
+
+//END=============================================================================================================================================================================================================================
+
+//When user clicks Purchased History =============================================================================================================================
+    $("#purchasedHistory").on("click", function (event) {
+        $("#userPurchasedHistory").empty()
+    //    $("#clientHomeView").hide()
+           $("#clientPostedRowView").hide()
+           $("#clientPendingRowView").hide()
+           $("#clientCompletedRowView").hide()
+           $("#clientPurchasedRowView").hide()
+           $("#clientPurchasedHistoryRowView").show()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").hide()
+           $("#allAppointmentsRowView").hide()
+           $("#userPurchasedAppointments").empty()
+           event.preventDefault();
+            for (let i = 0; i < purchasedHistoryArray.length; i++) {
+                let appointmentid = purchasedHistoryArray[i].id;
+                let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + purchasedHistoryArray[i].title + "</button>";
+                let phoneNumber = purchasedHistoryArray[i].phoneNumber;
+                let duration = purchasedHistoryArray[i].duration;
+                let day = purchasedHistoryArray[i].day;
+                let tre = purchasedHistoryArray[i].treatment;
+                let clientid = purchasedHistoryArray[i].ClientId;
+                let clientName = purchasedHistoryArray[i].clientName;
+                let clientNameURL = "<button onclick=userProfile(" + clientid + ") class=link>" + clientName + "</button>";
+                let pic;
+                if (purchasedHistoryArray[i].appointmentPhoto !== "") {
+                    pic = purchasedHistoryArray[i].appointmentPhoto;
+                } else {
+                    pic = "/images/work.jpg";
+                }
+                var newrow = $("<tr>");
+                newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+                newrow.append($("<td class='text-left'>" + title + "</td>"));
+                newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+                newrow.append($("<td class='text-left'>" + duration + "</td>"));
+                newrow.append($("<td class='text-left'>" + day + "</td>"));
+                newrow.append($("<td class='text-left'>" + tre + "</td>"));
+                newrow.append($("<td class='text-left'>" + clientNameURL + "</td>"));
+
+                if (purchasedHistoryArray[i].appointmentCommentTrue == false) {
+                    newrow.append($("<td><span onclick=leaveComment(" + appointmentid + ") i class='fas fa-comment-alt glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+                    $("#userPurchasedHistory").append(newrow);
+                } else if (purchasedHistoryArray[i].appointmentCommentTrue == true) {
+                    newrow.append($("<td><span onclick=leaveComment(" + appointmentid + ") i class='fas fa-edit glypiconSpace2 ficon'  data-key='" + appointmentid + "'></i></span></td>"))
+                    $("#userPurchasedHistory").append(newrow);
+                }
+            }
+    })
+//END=============================================================================================================================================================================================================================
+
+        $("#appointmentSchedules").on("click", function (event) {
+            $("#userPurchasedHistory").empty()
+            //    $("#clientHomeView").hide()
+            $("#clientPostedRowView").hide()
+            $("#clientPendingRowView").hide()
+            $("#clientCompletedRowView").hide()
+            $("#clientPurchasedRowView").hide()
+            $("#clientPurchasedHistoryRowView").hide()
+            $("#clientSchedulesRowView").show()
+            $("#appointHomeView").hide()
+            $("#allAppointmentsRowView").hide()
+            $("#userSchedules").empty()
+            event.preventDefault();
+            console.log("abcde",schedulesArray);
+            // // let seen = [];
+            // let result = [];
+
+            // schedulesArray.forEach(e => {
+            //     if (seen.indexOf(e.appointName) === -1) {
+            //         seen.push(e.appointName);
+            //         result.push(e);
+            //     }               
+            // })
+            // console.log(seen);
+            // console.log(result);
+                
+
+            for (let i = 0; i < schedulesArray.length; i++) {
+                
+                if (schedulesArray[i].clientId == sessionStorage.getItem("id")) {
+                    let appointmentidNumber = schedulesArray[i].AppointmentId;
+                    let scheduleId = schedulesArray[i].id;
+                    let appointName = schedulesArray[i].appointName;                    
+                    let appointmentid = "<button onclick=appointmentInfo(" + appointmentidNumber + ") class=link>" + appointmentidNumber + "</button>";
+                    let phoneNumber = "<button onclick=getSchedules(" + scheduleId + ") class=link>" + schedulesArray[i].schedule + "</button>";        
+                    let from = "<button onclick=userProfile(" + schedulesArray[i].appointId + ") class=link>" + schedulesArray[i].appointName + "</button>";
+                    var newrow = $("<tr>");
+                    newrow.append($("<td class='text-left'>" + appointmentid + "</td>"));
+                    newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+                    newrow.append($("<td class='text-left'>" + from + "</td>"));
+                    newrow.append($("<td class='text-left'>Sent</td>"));
+                    newrow.append($("<td><span onclick=deleteAppointment(" + scheduleId +") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentidNumber + "'></i></span></td>"))
+                    $("#userSchedules").append(newrow);
+                } else if (schedulesArray[i].appointId == sessionStorage.getItem("id")) {
+                    let appointmentidNumber = schedulesArray[i].AppointmentId;
+                    let scheduleId = schedulesArray[i].id;
+                    let appointName = schedulesArray[i].appointName;
+                    let appointmentid = "<button onclick=appointmentInfo(" + appointmentidNumber + ") class=link>" + appointmentidNumber + "</button>";
+                    let phoneNumber = "<button onclick=getSchedules(" + scheduleId + ") class=link>" + schedulesArray[i].schedule + "</button>";
+                    let from = "<button onclick=userProfile(" + schedulesArray[i].appointId + ") class=link>" + schedulesArray[i].appointName + "</button>";
+                    var newrow = $("<tr>");
+                    newrow.append($("<td class='text-left'>" + appointmentid + "</td>"));
+                    newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+                    newrow.append($("<td class='text-left'>" + from + "</td>"));
+                    newrow.append($("<td class='text-left'>Received</td>"));
+                    newrow.append($("<td><span onclick=deleteAppointment(" + scheduleId + ") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentidNumber + "'></i></span></td>"))
+                    $("#userSchedules").append(newrow);
+                } 
+
+            }
+
+
+        })
+
+
+
+
+//When user clicks on Appointments Dossier icon=============================================================================================================================
+
+
+    function dossier1() {
+        for (let i = 0; i < appointmentsArray.length; i++) {
+            if (appointmentsArray[i].clientAccept == false && appointmentsArray[i].requesterAccept == false) {
+                dossierAppointmentsArray.push(appointmentsArray[i])
+            }
+        }
+
+        for (let i = 0; i < in_progressArray.length; i++) {
+            if (in_progressArray[i].clientAccept == true && in_progressArray[i].requesterAccept == true) {
+                dossierIn_progressArray.push(in_progressArray[i])
+            }
+            if (in_progressArray[i].clientMarkComplete == true && in_progressArray[i].appointmentPaid == false) {
+                dossierIn_progressArray.push(in_progressArray[i])
+            }
+        }
+
+        for (let i = 0; i < purchasedArray.length; i++) {
+            if (purchasedArray[i].clientMarkComplete == true && purchasedArray[i].appointmentPaid == false) {
+                dossierPurchasedArray.push(purchasedArray[i])
+            }
+            if (purchasedArray[i].clientAccept == true && purchasedArray[i].requesterAccept == true) {
+                dossierPurchasedArray.push(purchasedArray[i])
+            }
+        }
+
+        console.log(dossierAppointmentsArray);
+        console.log(dossierIn_progressArray);
+        console.log(dossierPurchasedArray);
+
+
+
+
+        $("#clientHomeView").on("click", "#appointmentsDossier", function (event) {
+                event.preventDefault();
+                let inProgess = [];
+                let awaitingPayment = [];
+                let workForme = [];
+                let paythem = [];
+
+
+                for (let i = 0; i < dossierIn_progressArray.length; i++) {
+                    if (dossierIn_progressArray[i].clientAccept == true && dossierIn_progressArray[i].requesterAccept == true) {
+                        inProgess.push(dossierIn_progressArray[i])
+                    }
+                    if (dossierIn_progressArray[i].clientMarkComplete == true && dossierIn_progressArray[i].appointmentPaid == false) {
+                        awaitingPayment.push(dossierIn_progressArray[i])
+                    }
+
+                }
+
+                for (let i = 0; i < dossierPurchasedArray.length; i++) {
+                    if (dossierPurchasedArray[i].clientMarkComplete == true && dossierPurchasedArray[i].appointmentPaid == false) {
+                        workForme.push(dossierPurchasedArray[i])
+                    }
+                    if (dossierPurchasedArray[i].clientAccept == true && dossierPurchasedArray[i].requesterAccept == true) {
+                        paythem.push(dossierPurchasedArray[i])
+                    }
+
+                }
+
+
+                let appointmentsUnbooked = dossierAppointmentsArray.length;
+                let workInprogress= inProgess.length
+                let pleasePay = awaitingPayment.length;
+                let hiredThem = workForme.length;
+                let payThemCash = paythem.length;
+                let clientName = sessionStorage.getItem("username");
+
+                console.log(appointmentsUnbooked);
+                console.log(workInprogress);
+                console.log(pleasePay);
+                console.log(hiredThem);
+                console.log(payThemCash);
+
+            modal.style.display = "block";
+            $("#modalBody").empty();
+            $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space2">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="row modal-content-button-space">
+                                <div class="col-md-5">
+                                     <img src=${clientPhoto} alt="" class="imglock ">
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="row text-left">
+                                        <div class="col-md-12">
+                                        <h3 class="text-center marginBottom1" > Client: ${clientName}</h3 >
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Posted Appointment Unbooked:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${appointmentsUnbooked}</h4>
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Your Inprogress Appointments:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${workInprogress}</h4>
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Appointment Awaiting $:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${pleasePay}</h4>
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Purchased Inprogress Appointments:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${hiredThem}</h4>
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Purchased Appointment Awaiting $:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${payThemCash}</h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col rowSpace">
+                                    <button onclick="modelClose()" class="btn btn-primary" href="/home">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+
+
+            })
+        }
+
+//END=============================================================================================================================================================================================================================
+
+
+
+
+//When user clicks on Edit icon=============================================================================================================================
+
+    let title = $("#appointmentName1");
+    let phoneNumber = $("#appointmentPhoneNumber1");
+    let duration = $("#appointmentDuration1");
+    let day = $("#appointmentDay");
+    let tre = $("#appointmentTreatments1");
+    let appointmentid = $("#appointmentid1");
+    let appointmentPic = $("#appointmentPic1")
+
+    function editAppointment(appointmentid) {
+        $("#modalBody").empty();
+        modal.style.display = "block";
+        var id = appointmentid;
+        console.log("The id is: " + id)
+        $.ajax("/api/appointments1/" + id, {
+            type: "GET",
+            data: id
+        }).then(function (dbClient) {
+            console.log("LINE 25", dbClient);
+            $("#modalBody").append(`
+                  
+                        <h5 class="text-center">Modify your appointment</h5>
+                        <div id="appointmentid1"></div>
+                        <div class="row">
+                        <div class="offset-md-3 col-md-6">
+                        <form>
+                            <div class="form-group">
+                            <label for="Treatments">Treatment</label>
+                            <select class="form-control" id="appointmentTreatments1">
+                                <option selected="">Treatment</option>
+                                <option>Swedish massage</option>
+                                <option>Hot stone massage</option>
+                                <option>Deep tissue massage</option>
+                                <option>Woman's facial</option>
+                                <option>Men's facial</option>
+                            </select>
+                            </div>
+                            <div class="form-group">
+                            <label for="Duration">Duration</label>
+                            <input class="form-control" id="appointmentDuration1" type="number" placeholder=""/>
+                            </div>
+                           
+                            <div class="form-group">
+                            <label for="PhoneNumber">Phone number</label>
+                            <input class="form-control" id="appointmentPhoneNumber1" type="number" placeholder="" maxlength="250"></input>
+                            </div>
+                            <div class="form-group">
+                            <label for="day">Choose the day</label>
+                            <select class="form-control" id="appointmentDay1">
+                                <option selected="">Sunday</option>
+                                <option>Monday</option>
+                                <option>Tuesday</option>
+                                <option>Wednesday</option>
+                                <option>Thursday</option>
+                                <option>Friday</option>
+                                <option>Saturday</option>
+                            </select>
+                            </div>
+                        </form>
+                        </div>
+                        <div class="offset-md-7 col-md-1">
+                        <button class="btn btn-secondary" id="updateAppointment" type="submit">Modify</button>
+                        </div>
+                        <div class="col-md-1">   <a class="btn btn-secondary" href="/home">Cancel</a></div>
+                    </div>
+                `)
+
+            title = $("#appointemntName1");
+            phoneNumber = $("#appointmentPhoneNumber1");
+            duration = $("#appointmentDuration1");
+            day = $("#appointmentDay");
+            tre = $("#appointmentTreatments1");
+            appointmentid = $("#appointmentid1");
+            appointmentPic = $("#appointmentPic1");
+
+            title.val(dbClient.title);
+            phoneNumber.val(dbClient.phoneNumber);
+            duration.val(dbClient.duration);
+            day.val(dbClient.day);
+            tre.val(dbClient.treatment);
+            appointmentid.val(dbClient.id);
+            appointmentPic.val(dbClient.appointmentPhoto)
+            console.log(appointmentid.val())
+        });
+    }
+
+    $("#modalBody").on("click", "#updateAppointment", function (event) {
+        event.preventDefault();
+        var newAppointment = {
+            title: $("#appointmentName1").val(),
+            appointmentPhoto: $("#appointmentPic1").val(),
+            phoneNumber: $("#appointmentPhoneNumber1").val(),
+            duration: $("#appointmentDuration1").val(),
+            day: $("#appointmentDay1").val(),
+            treatment: $("#appointmentTreatments1").val(),
+            id: $("#appointmentid1").val()
+        }
+        $.ajax("/api/appointments/", {
+            type: "PUT",
+            data: newAppointment
+        }).then(function (dbClient) {
+            $("#modalBody").empty();
+            modal.style.display = "block";
+            $("#modalBody").append(`
+                 
+                    <h4 class="text-center"><font color="green">Appointment successfully modified!</h4>
+
+                `)
+            setTimeout(() => {
+                location.href = "/home";
+            }, 1000);
+
+        })
+
+    })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//When user clicks on delete icon =====================================================================================================================================================
+
+    function deleteAppointment(appointmentid) {
+        var id = appointmentid;
+        console.log("hi")
+        $.ajax("/api/appointments/" + id, {
+            type: "DELETE",
+            data: id
+        }).then(function (dbClient) {
+            $("#modalBody").empty();
+            modal.style.display = "block";
+            $("#modalBody").append(`
+                   
+                    <h4 class="text-center"><font color="green">Appointment successfuly Deleted!</h4>
+
+                `)
+            setTimeout(() => {
+                location.href = "/home";
+            }, 4000);
+        })
+    }
+
+//END=============================================================================================================================================================================================================================
+//Modal for Edit =====================================================================================================================================================
+
+    var modal = document.getElementById('myModal');
+    // var modalComment = document.getElementById('commentModal');
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+        location.href = "/home";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//When user clicks on All Appointments=========================================================================================================================================
+        $("#viewAllAppointments").on("click", function (event) {
+            event.preventDefault();
+            // location.reload()
+           $("#clientHomeView").hide()
+           $("#clientPostedRowView").hide()
+           $("#clientPendingRowView").hide()
+           $("#clientCompletedRowView").hide()
+           $("#clientPurchasedRowView").hide()
+           $("#clientPurchasedHistoryRowView").hide()
+           $("#clientSchedulesRowView").hide()
+           $("#appointHomeView").show()
+           $("#allAppointmentsRowView").show()
+
+           // calling ajax call
+             $.ajax("/api/availableappointments", {
+                type: "GET",
+            }).then(function (dbAppointments) {
+                console.log('dbAppointments', dbAppointments);
+                var appointmentsArray = dbAppointments;
+                for (let i = 0; i < appointmentsArray.length; i++) {
+                    let appointmentid = appointmentsArray[i].id;
+                    let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + appointmentsArray[i].title + "</button>";
+                    let phoneNumber = appointmentsArray[i].phoneNumber;
+                    let duration = appointmentsArray[i].duration;
+                    let day = appointmentsArray[i].day;
+                    let tre = appointmentsArray[i].treatment;
+                    let clientid = appointmentsArray[i].ClientId;
+                    let clientName = appointmentsArray[i].clientName;
+                    let clientNameURL = "<button onclick=userProfile(" + clientid + ") class=link>" + clientName + "</button>";
+                    let pic;
+                    if (appointmentsArray[i].appointmentPhoto !== "") {
+                        pic = appointmentsArray[i].appointmentPhoto;
+                    } else {
+                        pic = "/images/work.jpg";
+                    }
+                    var newrow = $("<tr>");
+                    newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+                    newrow.append($("<td class='text-left'>" + title + "</td>"));
+                    newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+                    newrow.append($("<td class='text-left'>" + duration + "</td>"));
+                    newrow.append($("<td class='text-left'>" + day + "</td>"));
+                    newrow.append($("<td class='text-left'>" + tre + "</td>"));
+                    newrow.append($("<td class='text-left'>" + clientNameURL + "</td>"));
+
+                    if (clientid == sessionStorage.getItem("id")) {
+                        // newrow.append($("<td><span onclick=editAppointment(" + appointmentid + ") i class='fas fa-edit' data-key='" + appointmentid + "'></i></span><span onclick=deleteAppointment(" + appointmentid + ") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+
+                    } else{
+                        newrow.append($("<td><span onclick=bookAppointment(" + appointmentid + ") i class='fas fa-check-square ficon' data-key='" + appointmentid + "'></i> Book</td>"))
+                    }
+                    $("#allAppointmentsTable").append(newrow);
+                }
+            }); // end AJAX, get all appointments
+        })
+
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//When user clicks on Your Appointments=========================================================================================================================================
+
+
+        $("#clientAppointments").on("click", function (event) {
+            event.preventDefault();
+            location.reload()
+            $("#clientHomeView").show()
+            $("#clientPostedRowView").show()
+            $("#clientPendingRowView").hide()
+            $("#clientCompletedRowView").hide()
+            $("#clientPurchasedRowView").hide()
+            $("#clientPurchasedHistoryRowView").hide()
+            $("#clientSchedulesRowView").hide()
+            $("#appointHomeView").hide()
+            $("#allAppointmentsRowView").hide()
+         })
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//When is viewing All Appointments and clicks filter=========================================================================================================================================
+
+    $("#treatmentSubmit").on("click", function (event) {
+        $("#allAppointmentsTable").empty();
+        event.preventDefault();
+        $.ajax("/api/appointments/treatment/" + $('#treatmentSelect').val(), {
+            type: "GET",
+        }).then(function (dbAppointments) {
+
+        if (dbAppointments.length == 0) {
+            $("#allAppointmentsTableHeadings").hide()
+            var newrow = $("<tr>");
+                newrow.append($("<td></td>"));
+                newrow.append($("<td</td>"));
+                newrow.append($("<td class='text-center'>" + "</h6>I'm sorry were free out of " + $('#treatmentSelect').val()+ " please check back later!</h6>" + "</td>"));
+            $("#allAppointmentsTable").append(newrow);
+        }else{
+            $("#allAppointmentsTableHeadings").show()
+            console.log('dbAppointments', dbAppointments);
+            var appointmentsArray = dbAppointments;
+            for (let i = 0; i < appointmentsArray.length; i++) {
+                let appointmentid = appointmentsArray[i].id;
+                let title = "<button onclick=appointmentInfo(" + appointmentid + ") class=link>" + appointmentsArray[i].title + "</button>";
+                let phoneNumber = appointmentsArray[i].phoneNumber;
+                let duration = appointmentsArray[i].duration;
+                let day = appointmentsArray[i].day;
+                let tre = appointmentsArray[i].treatment;
+                let clientid = appointmentsArray[i].ClientId;
+                let clientName = appointmentsArray[i].clientName;
+                let clientNameURL = "<button onclick=userProfile(" + clientid + ") class=link>" +clientName+"</button>";
+                let pic;
+                if (appointmentsArray[i].appointmentPhoto !== "") {
+                    pic = appointmentsArray[i].appointmentPhoto;
+                } else {
+                    pic = "/images/work.jpg";
+                }
+                var newrow = $("<tr class='text-left'>");
+                newrow.append($("<td class='text-left'> <img src =" + pic + " alt ='Appointment Photo'  class='imgTable'></td>"));
+                newrow.append($("<td class='text-left'>" + title + "</td>"));
+                newrow.append($("<td class='text-left'>" + phoneNumber + "</td>"));
+                newrow.append($("<td class='text-left'>" + duration + "</td>"));
+                newrow.append($("<td class='text-left'>" + day + "</td>"));
+                newrow.append($("<td class='text-left'>" + tre + "</td>"));
+                newrow.append($("<td class='text-left'>" + clientNameURL + "</td>"));
+
+                if (clientid == sessionStorage.getItem("id")) {
+                    // newrow.append($("<td><span onclick=editAppointment(" + appointmentid + ") i class='fas fa-edit glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span><span onclick=deleteAppointment(" + appointmentid + ") i class='fas fa-trash-alt glypiconSpace2 ficon' data-key='" + appointmentid + "'></i></span></td>"))
+
+                } else {
+                    newrow.append($("<td><span onclick=bookAppointment(" + appointmentid + ") i class='fas fa-check-square glypiconSpace ficon' data-key='" + appointmentid + "'></i> Book</td>"))
+                }
+
+                $("#allAppointmentsTable").append(newrow);
+            }
+        }
+
+        }); // end AJAX, get all appointments
+    }); // end filter by treatment
+
+//END=======================================================================================================================================================================================================================================================================================
+
+//When user clicks on All Appointments or Your Appointments=========================================================================================================================================
+
+        function bookAppointment(appointmentid) {
+            console.log("book")
+            var appointmentId = appointmentid;
+            var appointUpdate = {
+                id: appointmentId,
+                appointId: sessionStorage.getItem("id"),
+                appointName: sessionStorage.getItem("username"),
+                requesterAccept: true,
+                clientAccept: true,
+            }
+            console.log(appointUpdate)
+            $.ajax("/api/updateAppoint", {
+                type: "PUT",
+                data: appointUpdate
+            }).then(
+                function () {
+                    $("#modalBody").empty();
+                    modal.style.display = "block";
+                    $("#modalBody").append(`
+                    <div class="text-center modal-content-head-img-bottom-space">
+                        <img class="model-content-head-img" src="images/client.png" alt="">
+                    </div>
+                        <h4 class="text-center">Appointment Booked!</h4>
+                     `)
+                    setTimeout(() => {
+                        location.href = "/home";
+                    }, 10000);
+                }
+            );
+        }
+
+//New Function=======================================================================================================================================================================================================================================================================================
+
+        function markComplete(appointmentid) {
+         console.log("complete")
+
+            var id = appointmentid;
+            console.log(id)
+            var payCash = {
+                id: id,
+                requesterMarkComplete: true,
+                appointmentPaid: true
+            }
+            console.log(payCash)
+            $.ajax("/api/updateAppoint", {
+                type: "PUT",
+                data: payCash
+            }).then(
+                function () {
+                    $("#modalBody").empty();
+                    modal.style.display = "block";
+                    $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                            <h4 class="text-center">Payment Sent! Thanks</h4>
+                            <h4 class="text-center">Don't forget to Leave your Client some</h4>
+                            <h4 class="text-center">feedback, under your Purchased History.</h4>
+                     `)
+                    setTimeout(() => {
+                        location.href = "/home";
+                    }, 2000);
+                }
+            );
+        }
+//New Function=======================================================================================================================================================================================================================================================================================
+
+        function requestCash(appointmentid) {
+            console.log("request")
+            // MODEL BOX
+            var id = appointmentid;
+            console.log(id)
+
+            var reqCash = {
+                id: id,
+                clientMarkComplete: true,
+            }
+            console.log(reqCash)
+            $.ajax("/api/updateAppoint", {
+                type: "PUT",
+                data: reqCash
+            }).then(
+                function () {
+                    $("#modalBody").empty();
+                    modal.style.display = "block";
+                    $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                        <h4 class="text-center">Payment Requested!</h4>
+                     `)
+                    setTimeout(() => {
+                        location.href = "/home";
+                    }, 1000);
+                }
+            );
+        }
+
+
+//New Function=======================================================================================================================================================================================================================================================================================
+
+        function cancelAppointment(appointmentid) {
+            console.log("cancel")
+            var appointmentId = appointmentid;
+            var cancel = {
+                id: appointmentId,
+                appointId: 0,
+                appointName: null,
+                requesterAccept: false,
+                clientAccept: false,
+            }
+            console.log(cancel)
+            $.ajax("/api/updateAppoint", {
+                type: "PUT",
+                data: cancel
+            }).then(
+                function () {
+                    $("#modalBody").empty();
+                    modal.style.display = "block";
+                    $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                        <h4 class="text-center">Appointment Unbooked!</h4>
+                     `)
+                    setTimeout(() => {
+                        location.href = "/home";
+                    }, 1000);
+                }
+            );
+        }
+
+
+//New Function=======================================================================================================================================================================================================================================================================================
+
+        function userProfile(clientid) {
+            let clientAppointmentsArray = [];
+            let appointmentCompArray = [];
+            let appointmentCompNum;
+            let clientName;
+            let clientPhoto;
+            let clientComments;
+
+
+            console.log("user")
+            var id = clientid;
+            console.log(id);
+
+            $.ajax("/api/appointments/" + clientid, {
+                type: "GET",
+                id: id
+            }).then(function (dbClient) {
+                // console.log("Appointments associated with Client",dbClient);
+                for (let i = 0; i < dbClient.length; i++) {
+                    clientAppointmentsArray.push(dbClient[i])
+                }
+
+                $.ajax("/api/clients1/" + clientid, {
+                    type: "GET",
+                     id: id
+                }).then(function (dbClient1) {
+                    console.log(dbClient1);
+                    clientName = dbClient1.username;
+                    if (dbClient1.clientPhoto !== '') {
+                        clientPhoto = dbClient1.clientPhoto;
+                    } else {
+                        clientPhoto = "/images/userTempPic.jpg";
+                    }
+
+                    for (let i = 0; i < dbClient.length; i++) {
+                        if (dbClient[i].requesterMarkComplete && dbClient[i].appointmentPaid == true) {
+                            appointmentCompArray.push(dbClient[i])
+                        }
+                        appointmentCompNum = appointmentCompArray.length
+                    }
+
+
+
+                    // console.log("Client Themselves", dbClient1);
+                    console.log(clientAppointmentsArray);
+                    console.log(clientName);
+                    console.log("# of Appointment Completed", appointmentCompNum)
+
+                    modal.style.display = "block";
+                    $("#modalBody").empty();
+                    $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space2">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                        <div class="container">
+                            <div class="row modal-content-button-space">
+                                <div class="col-md-5">
+                                     <img src="${clientPhoto}" alt="" class="imglock imgBorder">
+                                </div>
+                                <div class="col-md-7">
+                                    <div id="comments" class="row text-left">
+                                        <div class="col-md-12">
+                                        <h3 class="text-center marginBottom1" > Client: ${ clientName }</h3 >
+                                        </div>
+                                        <div class="offset-md-1 col-md-5 marginBottom">
+                                            <h3>Appointments Completed:</h3>
+                                        </div>
+                                        <div class="col-md-6 marginBottom">
+                                            <h4>${appointmentCompNum}</h4>
+                                        </div>
+                                        <div class="offset-md-1 col-md-11 text-center marginBottom">
+                                            <h3>Appoint Comments</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col rowSpace">
+                                    <button onclick="modelClose()" class="btn btn-primary" href="/home">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    `)
+
+                    for (let i = 0; i < appointmentCompArray.length; i++) {
+                        if (appointmentCompArray[i].appointmentComment !== null) {
+                            $("#comments").append(`
+                            <div class="offset-md-1 col-md-3 text-right marginBottom2">
+                                <h5>${appointmentCompArray[i].appointName}:</h5>
+                            </div>
+                            <div class="col-md-8 marginBottom2">
+                                <h5>${appointmentCompArray[i].appointmentComment}</h5>
+                            </div>
+                            `)
+                        }
+
+                    }
+                })
+
+            })
+
+
+        }
+//New Function=======================================================================================================================================================================================================================================================================================
+
+        function appointmentInfo(appointmentid) {
+            var id = appointmentid;
+            console.log(id);
+            $.ajax("/api/appointments1/" + id, {
+                type: "GET",
+                data: id
+            }).then(function (appointment) {
+                console.log(appointment);
+                let title = appointment.title;
+                let phoneNumber = appointment.phoneNumber;
+                let duration = appointment.duration;
+                let day = appointment.day;
+                let tre = appointment.treatment;
+                let pic;
+                if (appointment.appointmentPhoto !== "") {
+                    pic = appointment.appointmentPhoto;
+                } else {
+                    pic = "/images/work.jpg";
+                }
+                let clientid = appointment.ClientId;
+                let clientName = appointment.clientName
+                let dbClientName = "<button onclick=userProfile(" + clientid + ") class=link>" + clientName + "</button>";
+                let appointScheduleClick ="<button onclick=appointSchedule(" + id + ") class=link>Schedule " + clientName + " About This Appointment</button>";
+
+
+            modal.style.display = "block";
+            $("#modalBody").empty();
+            $("#modalBody").append(`
+                <div class="text-center modal-content-head-img-bottom-space2">
+                    <img class="model-content-head-img" src="images/client.png" alt="">
+                </div>
+                <div class="container">
+                    <h3 class="text-center modal-content-row-space">Client Appointment: ${appointmentid}</h3>
+                    <div id="appointmentid1" class="modal-content-row-space"></div>
+                    <div class="row text-left modal-content-button-space">
+                        <div class="col-md 7">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <h6>Appointmnet Name:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${title}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Appointment Description:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${phoneNumber}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Client:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${dbClientName}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Duration:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${duration}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Date of the Week:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${day}</p>
+                                </div>
+                                <div class="col-md-3">
+                                    <h6>Treatment:</h6>
+                                </div>
+                                <div class="col-md-9">
+                                    <p>${tre}</p>
+                                </div>
+                                <div class="offset-md-1 col-md-8">
+                                    ${appointScheduleClick}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md 5">
+                            <img src="${pic}" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <button onclick="modelClose()" class="btn btn-primary" href="/home">Close</button>
+                        </div>
+                    </div>
+                </div>`)
+            })
+        }
+
+//New Function=======================================================================================================================================================================================================================================================================================
+
+
+        function leaveComment(appointmentid) {
+            // $("#modalBody").empty();
+            console.log("commented")
+
+            modal.style.display = "block";
+                $("#modalBody").empty();
+                $("#modalBody").append(`
+                    <div class="text-center modal-content-head-img-bottom-space">
+                        <img class="model-content-head-img" src="images/client.png" alt="">
+                    </div>
+                        <h5 class="text-center">Leave A Comment!</h5>
+                        <div id="appointmentid1"></div>
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="Title">Enter your Comment</label>
+                                        <input class="form-control" id="appointmentComment" maxlength="150" type="text" placeholder="John did a great job!...." />
+                                        <small class="form-text text-muted">150 Character Max</small>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="offset-md-3 col-md-1">
+                                <button class="btn btn-primary" id="addComment" type="submit">Submit</button>
+                            </div>
+                            <div class="col-md-1">
+                                <a class="btn btn-primary" href="/home">Cancel</a>
+                            </div>
+                        </div>
+                  `)
+            let appointmentID = $("#appointmentid1");
+            appointmentID.val(appointmentid);
+            console.log(appointmentID.val())
+
+
+
+        $("#modalBody").on("click", "#addComment", function (event) {
+            event.preventDefault();
+            console.log("Commenting");
+
+            var appointmentId = $("#appointmentid1").val()
+            var userComment = $("#appointmentComment").val();
+            var comment = {
+                id: appointmentId,
+                appointmentComment: userComment,
+                appointmentCommentTrue: true,
+            }
+            console.log(comment)
+            $.ajax("/api/updateAppoint", {
+                type: "PUT",
+                data: comment
+            }).then(
+                function () {
+                    $("#modalBody").empty();
+                    modal.style.display = "block";
+                    $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                        <h4 class="text-center">Comment Submitted!</h4>
+                     `)
+                      setTimeout(() => {
+                         location.href = "/home";
+                      }, 1000);
+                }
+            );
+        })
+    }
+//New Function=======================================================================================================================================================================================================================================================================================
+ 
+    function appointSchedule(appointmentid,){
+        // console.log(appointmentid);
+        var id = appointmentid;
+        $.ajax("/api/appointments1/" + id, {
+            type: "GET",
+            data: id
+        }).then(function (appointment) {
+            console.log(appointment);         
+        modal.style.display = "block";
+        $("#modalBody").empty();
+        $("#modalBody").append(`
+        <div class="text-center modal-content-head-img-bottom-space">
+            <img class="model-content-head-img" src="images/client.png" alt="">
+        </div>
+            <h5 class="text-center">Schedule about Appointment ${appointmentid}</h5>
+            <div id="clientName"></div>
+            <div id="clientid"></div>
+            <div id="appointmentid"></div>                 
+            <div class="row">
+                <div class="offset-md-3 col-md-6">
+                    <form>
+                        <div class="form-group">
+                            <label for="Title">Enter your Schedule</label>
+                            <input class="form-control" id="appointmentMsg" maxlength="300" type="text" placeholder="John about your appointment...." />
+                            <small class="form-text text-muted">300 Character Max</small>
+                        </div>
+                    </form>
+                </div>
+                <div class="offset-md-5 col-md-1">
+                    <button class="btn btn-primary" id="addSchedule" type="submit">Submit</button>
+                </div>
+                <div class="col-md-1">
+                        <button onclick="modelClose()" class="btn btn-primary">Close</button>
+                </div>
+            </div>
+        `)
+
+        let clientName1 = $("#clientName");
+        let clientID1 = $("#clientid");
+        let appointmentID1 = $("#appointmentid");
+
+        clientName1.val(appointment.clientName);
+        clientID1.val(appointment.ClientId)
+        appointmentID1.val(id)
+
+        console.log(clientID1.val());
+        console.log(clientName1.val());
+        
+      })
+    }
+
+
+
+    $("#modalBody").on("click", "#addSchedule", function (event) {
+            event.preventDefault();
+            if ($("#appointmentMsg").val().length>0) {
+                var msgCreate = {
+                    schedule: $("#appointmentMsg").val(),
+                    newScheduleTrue: true,
+                    clientName: $("#clientName").val(),
+                    clientId: $("#clientid").val(),
+                    appointName: sessionStorage.getItem("username"),
+                    appointId: sessionStorage.getItem("id"),
+                    AppointmentId: $("#appointmentid").val()
+                };
+                    console.log(msgCreate);
+                //query clients for username and password and check if they match
+                $.ajax("/api/schedules", {
+                    type: "POST",
+                    data: msgCreate
+                }).then(function (dbClient) {
+
+                    console.log(dbClient);
+
+                    $("#modalBody").empty();
+                        modal.style.display = "block";
+                        $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space2">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                            <h4 class="text-center">Schedule Sent!</h4>
+                    `);
+                    setTimeout(() => {
+                        modal.style.display = "none";
+                    }, 2000);
+                });
+            } else {
+                //end of if statement
+                $("#modalBody").empty();
+                modal.style.display = "block";
+                $("#modalBody").append(`
+                    <div class="text-center modal-content-head-img-bottom-space2">
+                        <img class="model-content-head-img" src="images/client.png" alt="">
+                    </div>
+                    <h4 class="text-center">Please enter your schedule</h4>
+                `);
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 3000);
+            }
+        });
+//New Function=======================================================================================================================================================================================================================================================================================
+
+    function modelClose(){
+        modal.style.display = "none";
+    }
+
+
+        function getSchedules(scheduleId) {
+            // console.log(appointmentid);
+            
+            var id = scheduleId;
+            $.ajax("/api/schedules2/" + id , {
+                type: "GET",
+                data: id
+            }).then(function (appointments) {
+                console.log(appointments);
+                let schedule = appointments[0].schedule
+                modal.style.display = "block";
+                $("#modalBody").empty();
+                $("#modalBody").append(`
+                    <div class="text-center modal-content-head-img-bottom-space">
+                        <img class="model-content-head-img" src="images/client.png" alt="">
+                    </div>
+                        <h5 class="text-center">Schedule about Appointment</h5>
+                        <div id="clientName"></div>
+                        <div id="clientId"></div>
+                        <div id="appointName"></div> 
+                        <div id="appointId"></div> 
+                        <div id="AppointmentId"></div> 
+                        <div id="newScheduleTrue"></div>                 
+                        <div class="row">
+                            <div class="offset-md-3 col-md-6">
+                                <form>
+                                    <div>
+                                        <p>Schedule: ${schedule} </p>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="Title">Enter your Reply</label>
+                                        <input class="form-control" id="appointmentMsg" maxlength="300" type="text"placeholder="John about your appointment...." />
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="offset-md-5 col-md-1">
+                                <button class="btn btn-primary" id="replySchedule" type="submit">Submit</button>
+                            </div>
+                            <div class="col-md-1">
+                                    <button onclick="modelClose()" class="btn btn-primary">Close</button>
+                            </div>
+                        </div>
+                    `)
+       
+                let clientName1 = $("#clientName");
+                let clientId1= $("#clientId");
+                let appointName1 = $("#appointName");
+                let appointId1 = $("#appointId");
+                let AppointmentId1 = $("#AppointmentId");
+                let newScheduleTrue1 = $("#newScheduleTrue");
+
+
+                clientName1.val(appointments[0].clientName);
+                clientId1.val(appointments[0].clientId);
+                appointName1.val(appointments[0].appointName);
+                appointId1.val(appointments[0].appointId);
+                AppointmentId1.val(appointments[0].id);
+                newScheduleTrue1.val(appointments[0].newScheduleTrue);
+                console.log(AppointmentId1.val());
+                console.log(appointId1.val());
+                
+                
+                
+                 
+            })
+        }
+
+    $("#modalBody").on("click", "#replySchedule", function (event) {
+        event.preventDefault();
+        if ($("#appointmentMsg").val().length > 0) {
+            var msgCreate = {
+                schedule: $("#appointmentMsg").val(),
+                newScheduleTrue: true,
+                clientName: $("#clientName").val(),
+                clientId:  $("#clientId").val(),
+                appointName:  sessionStorage.getItem("username"),
+                appointId: sessionStorage.getItem("id"),
+                AppointmentId: $("#AppointmentId").val()
+            };
+            console.log(msgCreate);
+            //query clients for username and password and check if they match
+            $.ajax("/api/schedules", {
+                type: "POST",
+                data: msgCreate
+            }).then(function (dbClient) {
+
+                console.log(dbClient);
+
+                $("#modalBody").empty();
+                modal.style.display = "block";
+                $("#modalBody").append(`
+                        <div class="text-center modal-content-head-img-bottom-space2">
+                            <img class="model-content-head-img" src="images/client.png" alt="">
+                        </div>
+                            <h4 class="text-center">Schedule Sent!</h4>
+                    `);
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 2000);
+            });
+        } else {
+            //end of if statement
+            $("#modalBody").empty();
+            modal.style.display = "block";
+            $("#modalBody").append(`
+                    <div class="text-center modal-content-head-img-bottom-space2">
+                        <img class="model-content-head-img" src="images/client.png" alt="">
+                    </div>
+                    <h4 class="text-center">Please enter your schedule</h4>
+                `);
+            setTimeout(() => {
+                modal.style.display = "none";
+            }, 3000);
+        }
+    });
+
+
+
+</script>
+
+</html>

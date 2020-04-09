@@ -1,0 +1,60 @@
+//Schedule Appointment page
+extends layout
+//importing everything below into block content1 on layout.jade ===================================
+block content1
+  body.appointmentSettingsBG 
+   
+    .container   
+          .row
+            .offset-md-3.col-md-6.bgwhite.scheduleAppointmentModelSettings   
+              form
+                //- .form-group
+                //-   label(for='client') Client ID
+                //-   input#appointmentId.form-control(type='name', placeholder='Foreign KEY Client ID')
+                
+               
+                .form-group
+                  label(for='Treatments') 
+                    | Choose your Treatment 
+                  select#appointmentTreatments.form-control
+                    option(selected='') Treatment
+                    option Swedish massage
+                    option Hot stone massage
+                    option Deep tissue massage
+                    option Woman's facial
+                    option Men's facial
+
+                     .form-group
+                  label(for='Duration') 
+                    |  Duration  
+                  input#appointmentDuration.form-control(type='number', placeholder='Choose between 15,30 or 45 minutes')
+                .form-group
+                  label(for='PhoneNumber') 
+                    | Phone number 
+                  input#appointmentPhoneNumber.form-control(type='number', placeholder='Enter a phone number', maxlength='250')
+                            
+                .form-group
+                  label(for='day') 
+                    |  Choose the Day  
+                  select#appointmentDay.form-control
+                    option(selected='') Sunday
+                    option Monday
+                    option Tuesday
+                    option Wednesday
+                    option Thursday
+                    option Friday
+                    option Saturday
+                .form-group
+                  label(for='text') 
+                  
+                  |  Once the appoitment is booked, we will reach you back about available slots.
+            .offset-md-3.col-md-3.bgwhite.text-right.scheduleAppointmentModelSettings      
+                button#appointmentSubmit.btn.btn-secondary(type='submit') Book
+            .col-md-3.bgwhite.text-left.scheduleAppointmentModelSettings           
+                a.btn.btn-secondary(href='/home') Cancel
+
+
+      #myModal.modal1
+        .modal1-content
+            span.close ×
+            #modal1Body  

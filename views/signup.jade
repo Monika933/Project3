@@ -1,0 +1,38 @@
+extends layout
+//importing everything below into block content1 on layout.jade ===================================
+block content1
+  body.signUpPageBG 
+    
+    .container
+      .row
+        .offset-md-3.col-md-6.bgwhite.scheduleAppointmentModelSettings
+          form
+            .form-group
+              label(for='username') 
+                | Username 
+              
+              input#userNameCreate.form-control(type='name', placeholder='Enter Username')
+              #userNameOk
+           
+            .form-group
+              label(for='password') 
+                | Password 
+               
+              input#userPasswordCreate.form-control(type='name', placeholder='Password')
+            .form-group
+              label(for='password') 
+                | Confirm Password 
+              
+              input#userPasswordCreate2.form-control(type='name', placeholder='Confirm Password')
+           
+        .offset-md-3.col-md-3.bgwhite.text-right.scheduleAppointmentModelSettings  
+            buttonbutton#signupSubmit.btn.btn-secondary Sign up!
+        .col-md-3.bgwhite.text-left.scheduleAppointmentModelSettings  
+            a.btn.btn-secondary(href='/') Back to home page
+     
+
+
+    #myModal.modal1
+        .modal1-content
+          span.close ×
+          #modal1Body   

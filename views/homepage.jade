@@ -1,0 +1,33 @@
+extends layout
+//importing everything below into block content1 on layout.jade ===================================
+block content1
+  body.logonPageBG  
+      .row
+        .offset-md-3.col-md-3
+            .form-group
+              input#username.form-control.text-center(type='name', placeholder='Username')
+        .col-md-3
+         .form-group
+              input#userPassword.form-control.text-center(type='password', placeholder='Password')
+        .col-md-2
+         .form-group
+            buttonbutton#loginSubmit.btn.btn-dark Sign in!
+      
+       .text-center
+          a.btn.btn-outline-light(href='/signup' ) Become a new Member
+     
+      
+      .text-content
+        br
+  
+
+  footer.footer.footerDown
+    .container-fluid
+      p.text-center.footerFont  Copyright 2020 Relax Spa 
+     
+
+          
+      #myModal.modal1
+        .modal1-content
+          span.close ×
+          #modal1Body   
