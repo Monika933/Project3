@@ -1,6 +1,6 @@
 # SPA-RELAX
 
-#### Project 2-Spa-Repo, 2/20/2020
+#### Project 3-Spa-Repo, 2/20/2020
 
 #### By Monika Karanovic, Filip Ratkovic and Tina Karanovic
 
