@@ -10,9 +10,8 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
-);
+
+mongoose.connect(process.env.ATLAS_URI || "mongodb://Project3:Filipo21@ds143604.mlab.com:43604/heroku_n6fbsh2q");
 const connection = mongoose.connection;
 connection.once('open', () => {
   console.log("MongoDB database connection established successfully");
