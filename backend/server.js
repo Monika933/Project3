@@ -11,7 +11,7 @@ app.use(cors());
 app.use(express.json());
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri || "mongodb://Project3:Filipo21@ds143604.mlab.com:43604/heroku_n6fbsh2q", { useNewUrlParser: true, useCreateIndex: true }
+mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 const connection = mongoose.connection;
 connection.once('open', () => {
