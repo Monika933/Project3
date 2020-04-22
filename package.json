@@ -19,15 +19,8 @@
     "express": "^4.17.1",
     "if-env": "^1.0.4",
     "mongoose": "^5.9.7",
-    "bootstrap": "^4.3.1",
-    "react": "^16.8.6",
-    "react-datepicker": "^2.5.0",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0",
-    "react-scripts": "3.0.1",
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "dotenv": "^8.2.0"
+    "bootstrap": "^4.3.1"
+    
 
 
 
