@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 if (process.env.NODE_ENV === "production") {
-// 	app.use(express.static('client/build'));
+ 	app.use(express.static('backend/build'));
 	databaseToUse = "mongodb://Project3:Filipo21@ds143604.mlab.com:43604/heroku_n6fbsh2q";
 }
 else {
