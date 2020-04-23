@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "backend": "cd backend && npm start",
-    "heroku-postbuild": "npm run build --prefix backend"
+    
   },
   "eslintConfig": {
     "extends": "react-app"
