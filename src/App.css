@@ -6,7 +6,6 @@
   animation: App-logo-spin infinite 20s linear;
   height: 40vmin;
   pointer-events: none;
- 
 }
 
 .App-header {
@@ -18,11 +17,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  
+  background-image: ;
 }
 
 .App-link {
-  color: #fb6161;
+  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -33,4 +32,3 @@
     transform: rotate(360deg);
   }
 }
-

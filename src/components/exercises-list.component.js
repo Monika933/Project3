@@ -59,7 +59,7 @@ export default class ExercisesList extends Component {
               <th>Description</th>
               <th>Duration</th>
               <th>Date</th>
-              <th>Modify</th>
+              <th>Treatment</th>
             </tr>
           </thead>
           <tbody>
