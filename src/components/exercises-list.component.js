@@ -51,8 +51,8 @@ export default class ExercisesList extends Component {
   render() {
     return (
       <div>
-        <h3>Scheduled Appointments</h3>
-        <table className="table table-bordered">
+        <h3 class="text-light">Scheduled Appointments</h3>
+        <table className="table table-striped table-dark table-bordered">
           <thead className="thead-light">
             <tr>
               <th>Username</th>

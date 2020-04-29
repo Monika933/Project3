@@ -95,10 +95,10 @@ export default class EditExercise extends Component {
   render() {
     return (
     <div>
-      <h3>Edit Appointment</h3>
+      <h3 class="text-light">Edit Appointment</h3>
       <form onSubmit={this.onSubmit}>
         <div className="form-group"> 
-          <label>Username: </label>
+          <label class="text-light">Username: </label>
           <select ref="userInput"
               required
               className="form-control"
@@ -115,7 +115,7 @@ export default class EditExercise extends Component {
           </select>
         </div>
         <div className="form-group"> 
-          <label>Description: </label>
+          <label class="text-light">Description: </label>
           <input  type="text"
               required
               className="form-control"
@@ -124,7 +124,7 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Duration (in minutes): </label>
+          <label class="text-light">Duration (in minutes): </label>
           <input 
               type="text" 
               className="form-control"
@@ -133,7 +133,7 @@ export default class EditExercise extends Component {
               />
         </div>
         <div className="form-group">
-          <label>Date: </label>
+          <label class="text-light">Date: </label>
           <div>
             <DatePicker
               selected={this.state.date}
